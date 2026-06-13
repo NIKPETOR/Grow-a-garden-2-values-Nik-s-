@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>GAG 2 Values Pro</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --bg: #050816;
+  --panel: rgba(255,255,255,0.05);
+  --border: rgba(255,255,255,0.08);
+  --green: #22c55e;
+  --text: #e5e7eb;
+}
+
+body {
+  margin: 0;
+  font-family: Inter;
+  background: radial-gradient(circle at top, #0b1220, var(--bg));
+  color: var(--text);
+}
+
+/* TOP BAR */
+header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 24px;
+  background: rgba(10,15,30,0.75);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+}
+
+.logo {
+  font-weight: 800;
+  letter-spacing: 0.5px;
+}
+
+nav button {
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--text);
+  padding: 8px 14px;
+  border-radius: 10px;
+  margin-left: 6px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+nav button:hover {
+  background: var(--green);
+  border-color: var(--green);
+  transform: translateY(-1px);
+}
+
+/* LAYOUT */
+.container {
+  max-width: 1100px;
+  margin: auto;
+  padding: 24px;
+}
+
+.section {
+  display: none;
+  animation: fade 0.25s ease-in-out;
+}
+
+.active { display: block; }
+
+@keyframes fade {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* HERO */
+.hero {
+  padding: 40px;
+  border: 1px solid var(--border);
+  background: linear-gradient(135deg, rgba(34,197,94,0.08), rgba(255,255,255,0.03));
+  border-radius: 18px;
+}
+
+/* GRID */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 14px;
+}
+
+/* CARD */
+.card {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  padding: 14px;
+  border-radius: 14px;
+  transition: 0.2s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  border-color: var(--green);
+}
+
+/* TIERS */
+.tier {
+  display: inline-block;
+  margin-top: 8px;
+  padding: 4px 10px;
+  font-size: 11px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.06);
+}
+
+.S { border-left: 4px solid gold; }
+.A { border-left: 4px solid #4ade80; }
+.B { border-left: 4px solid #60a5fa; }
+.C { border-left: 4px solid #facc15; }
+.D { border-left: 4px solid #fb7185; }
+
+/* CALC */
+.calc {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  padding: 20px;
+  border-radius: 16px;
+  backdrop-filter: blur(10px);
+}
+
+select, button {
+  width: 100%;
+  padding: 12px;
+  margin-top: 10px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: rgba(255,255,255,0.03);
+  color: var(--text);
+}
+
+button.primary {
+  background: linear-gradient(90deg, var(--green), #16a34a);
+  border: none;
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+button.primary:hover {
+  transform: scale(1.02);
+}
+
+.result {
+  margin-top: 15px;
+  font-size: 20px;
+  text-align: center;
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="logo">🌱 GAG 2 PRO TRADING</div>
+  <nav>
+    <button onclick="show('home')">Home</button>
+    <button onclick="show('values')">Values</button>
+    <button onclick="show('calc')">Calculator</button>
+  </nav>
+</header>
+
+<div class="container">
+
+<!-- HOME -->
+<div id="home" class="section active">
+  <div class="hero">
+    <h1>🔥 Grow a Garden 2 Trading Hub</h1>
+    <p>Professional values system • mutations • fair trade calculator</p>
+  </div>
+</div>
+
+<!-- VALUES -->
+<div id="values" class="section">
+  <h2>📊 Item Values</h2>
+  <div class="grid" id="grid"></div>
+</div>
+
+<!-- CALCULATOR -->
+<div id="calc" class="section">
+
+<h2>⚖️ Trade Calculator</h2>
+
+<div class="calc">
+
+<select id="item1"></select>
+
+<select id="m1a">
+  <option value="1">None</option>
+  <option value="10">Rainbow (10x)</option>
+  <option value="10">Gold (10x)</option>
+  <option value="25">Lightning (25x)</option>
+  <option value="3">Snowfall (3x)</option>
+</select>
+
+<select id="m1b">
+  <option value="1">None</option>
+  <option value="10">Rainbow (10x)</option>
+  <option value="10">Gold (10x)</option>
+  <option value="25">Lightning (25x)</option>
+  <option value="3">Snowfall (3x)</option>
+</select>
+
+<select id="item2"></select>
+
+<select id="m2a">
+  <option value="1">None</option>
+  <option value="10">Rainbow (10x)</option>
+  <option value="10">Gold (10x)</option>
+  <option value="25">Lightning (25x)</option>
+  <option value="3">Snowfall (3x)</option>
+</select>
+
+<select id="m2b">
+  <option value="1">None</option>
+  <option value="10">Rainbow (10x)</option>
+  <option value="10">Gold (10x)</option>
+  <option value="25">Lightning (25x)</option>
+  <option value="3">Snowfall (3x)</option>
+</select>
+
+<button class="primary" onclick="calc()">Check Trade</button>
+
+<div class="result" id="result"></div>
+
+</div>
+
+</div>
+
+</div>
+
+<script>
+
+const items = [
+{name:"Dragon’s Breath",value:3400,tier:"S"},
+{name:"Moon Bloom",value:9000,tier:"S"},
+{name:"Pomegranate",value:900,tier:"S"},
+{name:"Ghost Pepper",value:2500,tier:"S"},
+{name:"Venus Fly Trap",value:11000,tier:"S"},
+
+{name:"Glow Mushroom",value:700,tier:"A"},
+{name:"Mushroom",value:15000,tier:"A"},
+{name:"Acorn",value:200,tier:"A"},
+
+{name:"Apple",value:60,tier:"C"},
+{name:"Strawberry",value:5,tier:"D"}
+];
+
+const mut = {1:1,10:10,25:25,3:3};
+
+function show(id){
+  document.querySelectorAll(".section").forEach(s=>s.classList.remove("active"));
+  document.getElementById(id).classList.add("active");
+}
+
+function load(){
+  let g=document.getElementById("grid");
+  let a=document.getElementById("item1");
+  let b=document.getElementById("item2");
+
+  items.forEach(i=>{
+    g.innerHTML += `
+      <div class="card ${i.tier}">
+        <b>${i.name}</b><br>
+        💰 ${i.value}<br>
+        <span class="tier">Tier ${i.tier}</span>
+      </div>
+    `;
+
+    a.innerHTML += `<option value="${i.name}">${i.name}</option>`;
+    b.innerHTML += `<option value="${i.name}">${i.name}</option>`;
+  });
+}
+
+function getItem(n){
+  return items.find(i=>i.name===n);
+}
+
+function calc(){
+
+  let i1=getItem(item1.value);
+  let i2=getItem(item2.value);
+
+  let v1=i1.value * mut[m1a.value] * mut[m1b.value];
+  let v2=i2.value * mut[m2a.value] * mut[m2b.value];
+
+  let diff=v2-v1;
+  let pct=(diff/v1)*100;
+
+  result.innerHTML =
+    Math.abs(pct)<5 ? "⚖️ FAIR TRADE" :
+    diff>0 ? `📈 WIN (+${pct.toFixed(1)}%)` :
+             `📉 LOSE (${pct.toFixed(1)}%)`;
+}
+
+load();
+
+</script>
+
+</body>
+</html>
